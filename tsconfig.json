@@ -1,0 +1,12 @@
+{
+    "extends": "@shopify/typescript-configs/library",
+    "compilerOptions": {
+      "baseUrl": ".",
+      "rootDir": ".",
+      "outDir": "./dist",
+      "declaration": true,
+      "module": "CommonJS"
+    },
+    "include": ["./src/**/*", "./config/**/*"],
+    "exclude": ["./src/**/tests/**", "./node_modules/**/*"]
+  }
