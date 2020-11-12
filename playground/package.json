@@ -5,15 +5,18 @@
   "author": "",
   "license": "MIT",
   "scripts": {
-    "clean": "rm -rf ./dist",
-    "build": "yarn clean && yarn tsc ./src/index.tsx --module commonjs --outDir ./dist --jsx react --moduleResolution node --esModuleInterop true --lib ES6,DOM --target ES5"
+    "clean": "rm -rf ./.build-intermediate && rm public/bundle.js",
+    "build": "yarn build:transpile && yarn build:bundle",
+    "build:transpile": "yarn tsc ./src/index.tsx --module commonjs --outDir ./.build-intermediate --jsx react --moduleResolution node --esModuleInterop true --lib ES6,DOM --target ES5",
+    "build:bundle": "browserify ./.build-intermediate/index.js -o public/bundle.js"
   },
   "dependencies": {
     "react": "^17.0.1",
-    "react-dom": "^17.0.1",
-    "serve-dev": "^1.0.0-alpha.6"
+    "react-dom": "^17.0.1"
   },
   "devDependencies": {
+    "serve-dev": "^1.0.0-alpha.6",
+    "browserify": "^17.0.0",
     "@types/react-dom": "^16.9.9",
     "typescript": "^4.0.5"
   }
