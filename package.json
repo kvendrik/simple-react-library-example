@@ -5,7 +5,7 @@
   "main": "dist/src/index.js",
   "scripts": {
     "clean": "rm -rf ./dist",
-    "build": "tsc",
+    "build": "yarn clean && tsc",
     "build:playground": "cd playground && yarn build",
     "playground": "yarn build && yarn build:playground && node playground-server.mjs"
   },

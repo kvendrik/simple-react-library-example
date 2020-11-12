@@ -2,22 +2,28 @@
   "name": "playground",
   "version": "1.0.0",
   "description": "",
+  "scripts": {
+    "build": "rollup -c rollup.config.js",
+    "dev": "node dev-server.mjs"
+  },
   "author": "",
   "license": "MIT",
-  "scripts": {
-    "clean": "rm -rf ./.build-intermediate && rm public/bundle.js",
-    "build": "yarn build:transpile && yarn build:bundle",
-    "build:transpile": "yarn tsc ./src/index.tsx --module commonjs --outDir ./.build-intermediate --jsx react --moduleResolution node --esModuleInterop true --lib ES6,DOM --target ES5",
-    "build:bundle": "browserify ./.build-intermediate/index.js -o public/bundle.js"
+  "devDependencies": {
+    "@rollup/plugin-commonjs": "^16.0.0",
+    "@rollup/plugin-node-resolve": "^10.0.0",
+    "@rollup/plugin-replace": "^2.3.4",
+    "@types/react-dom": "^16.9.9",
+    "rollup": "^2.33.1",
+    "rollup-plugin-typescript": "^1.0.1",
+    "serve-dev": "^1.0.0-alpha.6",
+    "tslib": "^2.0.3",
+    "typescript": "^4.0.5"
   },
   "dependencies": {
     "react": "^17.0.1",
     "react-dom": "^17.0.1"
   },
-  "devDependencies": {
-    "serve-dev": "^1.0.0-alpha.6",
-    "browserify": "^17.0.0",
-    "@types/react-dom": "^16.9.9",
-    "typescript": "^4.0.5"
+  "engines": {
+    "node": ">13"
   }
 }
