@@ -7,7 +7,7 @@ new DevServer({
   port: 9000,
   openPageOnStart: true,
   watch: {
-    paths: ['src', '../src'],
+    paths: ['src', 'public/index.html', '../src'],
     async onChange(filePath) {
       if (filePath.startsWith('..')) {
         execSync('cd ../ && yarn build');
