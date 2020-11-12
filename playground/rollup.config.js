@@ -11,8 +11,6 @@ export default {
     interop: 'auto'
   },
   plugins: [
-    nodeResolve(),
-    commonjs(),
     typescript({
       module: 'ES2015',
       jsx: 'react',
@@ -20,6 +18,8 @@ export default {
       lib: ["es6", "dom"],
       target: "es6"
     }),
+    nodeResolve(),
+    commonjs(),
     replace({
       'process.env.NODE_ENV': JSON.stringify('production')
     })

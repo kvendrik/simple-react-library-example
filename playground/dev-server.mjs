@@ -8,7 +8,16 @@ new DevServer({
   watch: {
     paths: ['src', '../src'],
     onChange(filePath) {
-      console.log(`${filePath} changed.`);
+      if (filePath.startsWith('..')) {
+        execSync('cd ../ && yarn build && cd playground && yarn build');
+        return {shouldReloadPage: true};
+      }
+
+      if (filePath.includes('.ts')) {
+        execSync('yarn build');
+        return {shouldReloadPage: true};
+      }
+
       return {shouldReloadPage: true};
     }
   },

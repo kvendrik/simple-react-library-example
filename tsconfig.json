@@ -5,7 +5,9 @@
       "rootDir": ".",
       "outDir": "./dist",
       "declaration": true,
-      "module": "CommonJS"
+      "module": "CommonJS",
+      "esModuleInterop": false,
+      "importHelpers": false
     },
     "include": ["./src/**/*", "./config/**/*"],
     "exclude": ["./src/**/tests/**", "./node_modules/**/*"]

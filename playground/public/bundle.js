@@ -640,9 +640,9 @@
 
 	var Button_1 = createCommonjsModule(function (module, exports) {
 	Object.defineProperty(exports, "__esModule", { value: true });
-	const react_1 = __importDefault(react$1);
+
 	function Button({ children }) {
-	    return react_1.default.createElement("button", null, children);
+	    return react$1.createElement("button", null, children);
 	}
 	exports.default = Button;
 	});
@@ -651,7 +651,7 @@
 	Object.defineProperty(exports, "__esModule", { value: true });
 	exports.Button = void 0;
 
-	Object.defineProperty(exports, "Button", { enumerable: true, get: function () { return __importDefault(Button_1).default; } });
+	Object.defineProperty(exports, "Button", { enumerable: true, get: function () { return Button_1.default; } });
 	});
 
 	function App() {
