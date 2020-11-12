@@ -1,5 +1,6 @@
 import {execSync} from 'child_process';
 import DevServer from 'serve-dev';
+import build from './build.mjs';
 
 new DevServer({
   root: 'public',
@@ -7,14 +8,15 @@ new DevServer({
   openPageOnStart: true,
   watch: {
     paths: ['src', '../src'],
-    onChange(filePath) {
+    async onChange(filePath) {
       if (filePath.startsWith('..')) {
-        execSync('cd ../ && yarn build && cd playground && yarn build');
+        execSync('cd ../ && yarn build');
+        await build();
         return {shouldReloadPage: true};
       }
 
       if (filePath.includes('.ts')) {
-        execSync('yarn build');
+        await build();
         return {shouldReloadPage: true};
       }
 

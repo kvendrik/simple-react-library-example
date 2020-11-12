@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "scripts": {
-    "build": "rollup -c rollup.config.js",
+    "build": "DIRECT=1 node build.mjs",
     "dev": "node dev-server.mjs"
   },
   "author": "",
