@@ -17,8 +17,5 @@
   },
   "dependencies": {
     "react": "^17.0.1"
-  },
-  "engines": {
-    "node": ">13"
   }
 }
